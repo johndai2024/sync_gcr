@@ -11,8 +11,8 @@ def get_filename():
 def pull_image():
     name_list= get_filename()
     for name in name_list:
-        new_name = "kenwood/" + name.split("/")[-1]
-        subprocess.call("docker pull {}".format(new_name), shell=True)
+        new_name = "johndai2024/" + name.split("/")[-1]
+        subprocess.call("docker pull --platform linux/amd64 {}".format(new_name), shell=True)
         subprocess.run(["docker", "tag", new_name, name])
         subprocess.call("docker rmi  {}".format(new_name), shell= True)
 if __name__ == "__main__":
